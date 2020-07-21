@@ -1,0 +1,1228 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "cwTeXYen", sans-serif;
+}
+img {
+  vertical-align: middle;
+}
+/*------------loading-------------------*/
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 99;
+}
+.wrap-load {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #240229;
+  border-radius: 20px;
+}
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 4px solid #240229;
+  border-radius: 20px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.1),
+    10px 10px 10px rgba(0, 0, 0, 0.4),
+    inset -5px -5px 5px rgba(255, 255, 255, 0.2),
+    inset 10px 10px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #240229;
+  border: 2px solid;
+  border-radius: 12px;
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.loader span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 15px;
+  filter: blur(20px);
+  animation: rotation 0.5s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.inner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  z-index: 5;
+}
+.inner span {
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #ed4c67 5%,
+    #f79f1f 10%,
+    #a3cb38 15%,
+    #12cbc4 30%,
+    #8900ff 50%
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 300%;
+  z-index: 1000;
+}
+.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*-----x------------loading-------------x----*/
+
+/* -----------------------------------------------以下是導覽列 */
+.head {
+  background: linear-gradient(225deg, #acacac 1%, #031321);
+}
+.container {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  position: relative;
+}
+.logo {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-self: center;
+  margin: 0 20px;
+  padding: 0 2px;
+  color: #2af8fc;
+  border: 2px solid #2af8fc;
+  border-radius: 8px;
+}
+.logo h1 {
+  font-size: 38px;
+  line-height: 52px;
+}
+.logo p {
+  font-size: 24px;
+  line-height: 60px;
+}
+.logo span {
+  position: absolute;
+  top: 3px;
+  right: -4.5px;
+  transform: scale(0.5);
+}
+.mainbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.mainbar a {
+  position: relative;
+  height: 25px;
+  font-size: 16px;
+  color: #03e9f4;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 10px 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+}
+/* 導覽選單顏色改變 */
+.mainbar a:nth-child(2) {
+  filter: hue-rotate(90deg);
+}
+.mainbar a:nth-child(3) {
+  filter: hue-rotate(180deg);
+}
+.mainbar a:nth-child(4) {
+  filter: hue-rotate(270deg);
+}
+/* 以下是導覽列的動畫 */
+.mainbar a:hover {
+  color: #255784;
+  background: #03e9f4;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+}
+.mainbar a span {
+  position: absolute;
+  display: block;
+}
+.mainbar a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.mainbar a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+.mainbar a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+.mainbar a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(36deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+.lightanddark {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.LDcontainer {
+  width: 60%;
+  height: 30px;
+  background: rgb(0, 204, 255);
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 40px;
+  position: relative;
+}
+.LDcontainer::before {
+  content: "Light";
+  font-size: 12px;
+  line-height: 25px;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  left: 14%;
+}
+.LDcontainer a {
+  width: 30px;
+  height: 30px;
+  background: url("../img/home/switch-light.svg");
+  position: absolute;
+  top: -3px;
+  right: 0px;
+  border-radius: 50%;
+}
+/*---------------------------RWD------------------------*/
+@media only screen and (max-width: 768px) {
+  .head {
+    background: linear-gradient(-225deg, #acacac 1%, #031321);
+  }
+  .container {
+    height: 60px;
+    white-space: nowrap;
+  }
+  .logo {
+    margin: 0 10px;
+    position: absolute;
+    right: 0;
+  }
+  .mainbar {
+    width: 180px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    z-index: 20;
+    background: rgba(35, 42, 72, 0.95);
+    animation: curtain 0.5s linear;
+  }
+  @keyframes curtain {
+    0% {
+      clip-path: polygon(15% 0, 13% 32%, 7% 63%, 0 89%, 0 93%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(
+        15% 0,
+        13% 32%,
+        7% 63%,
+        0 89%,
+        0 93%,
+        0 100%,
+        0 0
+      );
+    }
+    25% {
+      clip-path: polygon(32% 0, 27% 30%, 19% 59%, 11% 80%, 0 93%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(
+        32% 0,
+        27% 30%,
+        19% 59%,
+        11% 80%,
+        0 93%,
+        0 100%,
+        0 0
+      );
+    }
+    50% {
+      clip-path: polygon(
+        57% 0,
+        54% 25%,
+        44% 56%,
+        31% 79%,
+        12% 94%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        57% 0,
+        54% 25%,
+        44% 56%,
+        31% 79%,
+        12% 94%,
+        0 100%,
+        0 0
+      );
+    }
+    75% {
+      clip-path: polygon(
+        93% 0,
+        88% 29%,
+        82% 58%,
+        68% 84%,
+        49% 100%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        93% 0,
+        88% 29%,
+        82% 58%,
+        68% 84%,
+        49% 100%,
+        0 100%,
+        0 0
+      );
+    }
+    100% {
+      clip-path: polygon(
+        100% 0,
+        100% 35%,
+        100% 68%,
+        100% 100%,
+        66% 100%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        100% 0,
+        100% 35%,
+        100% 68%,
+        100% 100%,
+        66% 100%,
+        0 100%,
+        0 0
+      );
+    }
+  }
+  .mainbar.move {
+    display: none;
+  }
+  .mainbar a {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  .controlar {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    padding: 3px 10px;
+    border: 2px solid rgba(220, 220, 220, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .controlar span {
+    content: "";
+    display: block;
+    border: 1.5px solid rgba(240, 240, 240, 0.7);
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .controlar:hover {
+    background: rgba(35, 42, 72, 0.8);
+  }
+  .lightanddark {
+    width: 120px;
+    margin-left: 35px;
+    transform: scale(0.7);
+  }
+}
+/*----------X--------header RWD--------------X----------*/
+
+/* -------------------------------------------------以下是幻燈片 */
+.banner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.banner1,
+.banner2,
+.banner3,
+.banner4 {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.banner img {
+  width: 130%;
+  height: 130%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  animation: zoom-out 5s linear infinite;
+}
+@keyframes zoom-out {
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+.text-box {
+  width: 600px;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  padding: 10px;
+  animation: textup 20s linear infinite;
+  transform: translateY(100px);
+}
+.text-box h1 {
+  font-size: 100px;
+  font-weight: 900;
+  color: rgb(9, 61, 138);
+  margin-bottom: 30px;
+}
+.text-box p {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: rgb(255, 255, 255);
+  margin-top: 80px;
+  padding: 10px;
+  background: rgba(14, 14, 160, 0.3);
+  border-radius: 12px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+.text-box span {
+  background: linear-gradient(30deg, rgb(12, 79, 179), transparent);
+  height: 4px;
+  width: 280px;
+  border-radius: 5px;
+  position: absolute;
+  left: 10px;
+}
+.banner1 {
+  animation: slide1 20s linear infinite;
+}
+.banner2 {
+  animation: slide2 20s linear infinite;
+}
+.banner3 {
+  animation: slide3 20s linear infinite;
+}
+.banner4 {
+  animation: slide4 20s linear infinite;
+}
+@keyframes slide1 {
+  0% {
+    visibility: visible;
+  }
+  25% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes slide2 {
+  0% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+  }
+  75% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+@keyframes slide3 {
+  0% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+@keyframes slide4 {
+  0% {
+    visibility: hidden;
+  }
+  25% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  75% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes textup {
+  10% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.text-box1 {
+  animation-delay: 0s;
+}
+.text-box2 {
+  animation-delay: 5s;
+}
+.text-box3 {
+  animation-delay: 10s;
+}
+.text-box4 {
+  animation-delay: 15s;
+}
+/*--------------------------RWD-------------------------*/
+@media only screen and (max-width: 768px) {
+  .banner {
+    height: 700px;
+  }
+  .banner1,
+  .banner2,
+  .banner3,
+  .banner4 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .banner img {
+    width: 130%;
+    height: 130%;
+  }
+  .text-box {
+    width: 300px;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+  }
+  .text-box span {
+    height: 2px;
+    width: 230px;
+  }
+  .text-box h1 {
+    margin-bottom: 30px;
+    font-size: 50px;
+  }
+  .text-box p {
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 90px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .banner {
+    height: 500px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .banner {
+    height: 325px;
+  }
+  .text-box h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+  }
+  .text-box p {
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 40px;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .banner {
+    height: 260px;
+  }
+  .text-box {
+    width: 250px;
+    top: 7%;
+    left: 7%;
+  }
+  .text-box p {
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 30px;
+  }
+}
+/*----------X---------------RWD-------------X-----------*/
+
+/* ------------------------------------------------以下是自介 */
+.about {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.face {
+  width: 400px;
+  height: 100%;
+  margin-top: 155px;
+}
+.front img,
+.behind {
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: transform 0.6s linear;
+}
+.front {
+  transform: rotateY(0deg);
+}
+.behind {
+  position: relative;
+  background: #f1f1f1;
+  transform: rotateY(180deg);
+}
+
+.behindcontent {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  color: #2c3e50;
+  position: absolute;
+  top: 25%;
+}
+.hobby h2 {
+  padding-left: 66px;
+  color: #2c3e50;
+}
+.hobby {
+  width: 200px;
+  margin: 20px 0;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+}
+.hobby img {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  border: 2px solid #3352a2;
+  border-radius: 50%;
+}
+.facewrap {
+  width: 300px;
+  margin: 0 50px;
+}
+.facewrap:hover > .front img {
+  transform: rotateY(-180deg);
+}
+.facewrap:hover > .behind {
+  transform: rotateY(0deg);
+}
+.about-txt {
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.about-txt h1 {
+  text-align: center;
+  font-size: 70px;
+  padding-top: 40px;
+  margin-bottom: 30px;
+}
+.about-txt p {
+  padding: 5px 10px;
+  line-height: 32px;
+  font-size: 20px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  padding: 5px 0px;
+  margin: auto;
+}
+.attention h1 {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  color: rgb(177, 177, 177);
+  margin-top: 10%;
+}
+.languages {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  margin: -20px 0 30px 0;
+}
+.languages img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 15px rgba(94, 104, 188, 0.3);
+  cursor: pointer;
+}
+.languages img:hover {
+  transform: scale(1.1);
+}
+.languages > button,
+.about-txt .open-inf {
+  margin: 0;
+  padding: 20px;
+  border: transparent;
+  background: transparent;
+  outline: none;
+}
+.about-txt .text {
+  position: relative;
+}
+.about-txt .open-inf {
+  position: absolute;
+  right: 12px;
+  font-size: 15px;
+  color: #fff;
+  padding: 2px 20px;
+  background: #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.about-txt .open-inf:hover {
+  background: #feb85d;
+  color: #000;
+}
+
+/* 經驗資訊欄 */
+.inf {
+  width: 90%;
+  height: 90%;
+  z-index: 5;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  background: rgba(50, 50, 50, 0.9);
+  border-radius: 20px;
+  display: none;
+  overflow: scroll;
+}
+.inf-text {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px 0;
+  color: #fff;
+}
+.education {
+  width: 800px;
+  height: 100%;
+  padding-bottom: 10px;
+  margin: 10px 10px 10px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+.experience {
+  width: 800px;
+  height: 100%;
+  padding-bottom: 10px;
+  margin: 10px 20px 10px 10px;
+  background: rgba(165, 163, 163, 0.2);
+  border-radius: 20px;
+}
+.education h1,
+.experience h1 {
+  font-size: 25px;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #fff;
+  line-height: 40px;
+}
+.education p,
+.experience p {
+  text-align: left;
+  font-size: 18px;
+  line-height: 29px;
+  padding: 10px 20px;
+}
+.education a,
+.experience a {
+  text-decoration: none;
+  color: #fff;
+}
+.education a:hover,
+.experience a:hover {
+  color: #feb85d;
+}
+.inf-text button.close-inf {
+  width: 40px;
+  height: 40px;
+  line-height: 30px;
+  font-size: 35px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.inf-text > button {
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline: none;
+}
+.inf-text button:hover {
+  cursor: pointer;
+}
+
+/*--------------------------RWD-------------------------*/
+@media only screen and (max-width: 1200px) {
+  .inf-text {
+    line-height: 20px;
+  }
+  .languages {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .languages > button img {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+  }
+  .face {
+    width: 100%;
+    height: 300px;
+  }
+  .facewrap {
+    position: absolute;
+    top: 30px;
+    left: calc((100% - 400px) / 2);
+  }
+  .facewrap::after {
+    content: "點擊照片";
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    bottom: 5px;
+    left: 100px;
+    text-align: center;
+    padding-top: 5px;
+    background: rgba(200, 200, 200, 0.5);
+  }
+  .about-txt h1 {
+    font-size: 40px;
+    padding-top: unset;
+    margin-bottom: 15px;
+  }
+  .about-txt p {
+    font-size: 18px;
+    line-height: 26px;
+    padding: 5px 10px;
+  }
+  .inf-text {
+    flex-direction: column;
+    align-items: center;
+    line-height: 10px;
+  }
+  .education,
+  .experience {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .education h1,
+  .experience h1 {
+    font-size: 18px;
+    line-height: 29px;
+    padding: 5px 0;
+  }
+  .education p,
+  .experience p {
+    font-size: 15px;
+    line-height: 24px;
+    padding: 10px;
+    margin-bottom: 24px;
+  }
+  .attention h1 {
+    font-size: 18px;
+    margin-top: 20%;
+  }
+}
+/*----------X---------------RWD-------------X-----------*/
+
+/* -------------------------------------------------以下是技能區 */
+.skill {
+  width: 100%;
+  height: 900px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.skill .skilltitle {
+  width: 100%;
+  font-size: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 10px 0;
+}
+.skillguide {
+  display: none;
+}
+.itemgroup {
+  width: 1200px;
+  display: flex;
+  margin: auto;
+}
+.itemgroup a {
+  text-decoration: none;
+  color: #000;
+}
+.item {
+  width: 368px;
+  margin: 15px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 10px 15px 30px rgba(120, 120, 120, 0.8);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.item img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+.item h3 {
+  border-bottom: 1px solid #888;
+  padding-bottom: 7px;
+  margin-bottom: 3px;
+  font-size: 26px;
+  transition: 0.25s;
+}
+.item p {
+  font-size: 16px;
+  line-height: 1.5;
+  transition: 0.25s;
+}
+.item > .txt {
+  padding: 20px;
+  position: relative;
+}
+/* 以下是建出三角形 */
+.item .txt:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  border-top: 55px solid transparent;
+  border-left: 183px solid #fff;
+  border-right: 183px solid #fff;
+  transform: translateY(-99%);
+}
+.item:hover {
+  transform: translateY(-20%);
+}
+.item:hover .txt {
+  background: linear-gradient(0deg, #fb8076, #feb85d);
+}
+.item:hover .txt:before {
+  border-left: 183px solid #feb85d;
+  border-right: 183px solid #feb85d;
+}
+.item:hover h3 {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+.item:hover p {
+  color: #fff;
+}
+
+/*--------------------------RWD-------------------------*/
+@media only screen and (max-width: 1200px) {
+  .skill {
+    width: 100%;
+    height: 100%;
+  }
+  .itemgroup {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    white-space: nowrap;
+  }
+  .itemgroup a {
+    width: 400px;
+    margin-top: 80px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .skill .skilltitle {
+    font-size: 40px;
+    font-weight: 500px;
+    margin: 30px 0 10px 0;
+  }
+  .skillguide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .skillguide h1 {
+    font-size: 18px;
+    color: rgb(177, 177, 177);
+  }
+  .itemgroup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .itemgroup a {
+    width: 368px;
+  }
+  .item {
+    margin: 20px 0;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .itemgroup a {
+    width: 300px;
+  }
+  .item {
+    width: 300px;
+  }
+  .item h3 {
+    font-size: 24px;
+  }
+  .item p {
+    font-size: 14px;
+  }
+  /* 以下是建出三角形 */
+  .item .txt:before {
+    border-left: 149px solid #fff;
+    border-right: 149px solid #fff;
+  }
+  .item:hover .txt:before {
+    border-left: 149px solid #feb85d;
+    border-right: 149px solid #feb85d;
+  }
+}
+/*----------X---------------RWD-------------X-----------*/
+
+/* ------------------------------------------------以下是footer */
+.footer {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.conrtact {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.ft-icon {
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+  margin: 20px 10px;
+}
+.ft-icon a {
+  text-decoration: none;
+  color: #fff;
+}
+.ft-icon a:hover {
+  color: #feb85d;
+}
+.footertxt {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 15px 0 10px 0;
+}
+@media only screen and (max-width: 500px) {
+  .conrtact {
+    flex-direction: column;
+  }
+  .ft-icon {
+    margin: 10px auto;
+  }
+  .ft-icon:nth-child(2) {
+    order: 3;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .ft-icon {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+/* ------------------------------------------------以下是回頂置 */
+.topbtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+}
+.topbtn a {
+  text-decoration: none;
+  text-align: center;
+}
+.topbtn a img {
+  width: 100%;
+  height: 100%;
+}

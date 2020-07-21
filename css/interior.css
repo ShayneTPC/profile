@@ -1,0 +1,1001 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "cwTeXYen", sans-serif;
+}
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+body {
+  background: url("../img/home/skillsbg.svg");
+  background-repeat: no-repeat;
+  background-size: 110%;
+}
+/*------------loading-------------------*/
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 99;
+}
+.wrap-load {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #240229;
+  border-radius: 20px;
+}
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 4px solid #240229;
+  border-radius: 20px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.1),
+    10px 10px 10px rgba(0, 0, 0, 0.4),
+    inset -5px -5px 5px rgba(255, 255, 255, 0.2),
+    inset 10px 10px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #240229;
+  border: 2px solid;
+  border-radius: 12px;
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.loader span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 15px;
+  filter: blur(20px);
+  animation: rotation 0.5s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.inner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  z-index: 5;
+}
+.inner span {
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #ed4c67 5%,
+    #f79f1f 10%,
+    #a3cb38 15%,
+    #12cbc4 30%,
+    #8900ff 50%
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 300%;
+  z-index: 1000;
+}
+.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*-----x------------loading-------------x----*/
+
+/* -----------------------------------------------以下是導覽列 */
+.head {
+  background: linear-gradient(225deg, #acacac 1%, #031321);
+}
+.container {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  position: relative;
+}
+.logo {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-self: center;
+  margin: 0 20px;
+  padding: 0 2px;
+  color: #2af8fc;
+  border: 2px solid #2af8fc;
+  border-radius: 8px;
+}
+.logo h1 {
+  font-size: 38px;
+  line-height: 52px;
+}
+.logo p {
+  font-size: 24px;
+  line-height: 60px;
+}
+.logo span {
+  position: absolute;
+  top: 3px;
+  right: -4.5px;
+  transform: scale(0.5);
+}
+.mainbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.mainbar a {
+  position: relative;
+  height: 25px;
+  font-size: 16px;
+  color: #03e9f4;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 10px 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+}
+/* 導覽選單顏色改變 */
+.mainbar a:nth-child(2) {
+  filter: hue-rotate(90deg);
+}
+.mainbar a:nth-child(3) {
+  filter: hue-rotate(180deg);
+}
+.mainbar a:nth-child(4) {
+  filter: hue-rotate(270deg);
+}
+/* 以下是導覽列的動畫 */
+.mainbar a:hover {
+  color: #255784;
+  background: #03e9f4;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+}
+.mainbar a span {
+  position: absolute;
+  display: block;
+}
+.mainbar a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.mainbar a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+.mainbar a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+.mainbar a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(36deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+/*---------------------------RWD------------------------*/
+@media only screen and (max-width: 768px) {
+  .head {
+    background: linear-gradient(-225deg, #acacac 1%, #031321);
+  }
+  .container {
+    height: 60px;
+    white-space: nowrap;
+  }
+  .logo {
+    margin: 0 10px;
+    position: absolute;
+    right: 0;
+  }
+  .mainbar {
+    width: 180px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    z-index: 20;
+    background: rgba(35, 42, 72, 0.95);
+    animation: curtain 0.5s linear;
+  }
+  @keyframes curtain {
+    0% {
+      clip-path: polygon(15% 0, 13% 32%, 7% 63%, 0 89%, 0 93%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(
+        15% 0,
+        13% 32%,
+        7% 63%,
+        0 89%,
+        0 93%,
+        0 100%,
+        0 0
+      );
+    }
+    25% {
+      clip-path: polygon(32% 0, 27% 30%, 19% 59%, 11% 80%, 0 93%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(
+        32% 0,
+        27% 30%,
+        19% 59%,
+        11% 80%,
+        0 93%,
+        0 100%,
+        0 0
+      );
+    }
+    50% {
+      clip-path: polygon(
+        57% 0,
+        54% 25%,
+        44% 56%,
+        31% 79%,
+        12% 94%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        57% 0,
+        54% 25%,
+        44% 56%,
+        31% 79%,
+        12% 94%,
+        0 100%,
+        0 0
+      );
+    }
+    75% {
+      clip-path: polygon(
+        93% 0,
+        88% 29%,
+        82% 58%,
+        68% 84%,
+        49% 100%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        93% 0,
+        88% 29%,
+        82% 58%,
+        68% 84%,
+        49% 100%,
+        0 100%,
+        0 0
+      );
+    }
+    100% {
+      clip-path: polygon(
+        100% 0,
+        100% 35%,
+        100% 68%,
+        100% 100%,
+        66% 100%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        100% 0,
+        100% 35%,
+        100% 68%,
+        100% 100%,
+        66% 100%,
+        0 100%,
+        0 0
+      );
+    }
+  }
+  .mainbar.move {
+    display: none;
+  }
+  .mainbar a {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  .controlar {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    padding: 3px 10px;
+    border: 2px solid rgba(220, 220, 220, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .controlar span {
+    content: "";
+    display: block;
+    border: 1.5px solid rgba(240, 240, 240, 0.7);
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .controlar:hover {
+    background: rgba(35, 42, 72, 0.8);
+  }
+}
+/*----------X--------header RWD--------------X----------*/
+
+/*----------------------------------------------以下是作品集*/
+.collections {
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+.collections .box {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+}
+.collections > .box:nth-child(1) {
+  background: url("../img/interior/collectionsLG/LG.png");
+}
+.collections .box:nth-child(3) {
+  background: url("../img/interior/collectionsAH/AH.png");
+}
+.collections .box:nth-child(5) {
+  background: url("../img/interior/collectionsOF/OF.png");
+}
+.collections .box:nth-child(7) {
+  background: url("../img/interior/collectionsCR/CR.png");
+}
+.collections .box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -1;
+  transform: skew(2deg, 2deg);
+}
+.collections .box:nth-child(1)::before {
+  background: linear-gradient(315deg, #ff0057, #e64a19);
+}
+.collections .box:nth-child(3)::before {
+  background: linear-gradient(315deg, #89ff00, #00bcd4);
+}
+.collections .box:nth-child(5)::before {
+  background: linear-gradient(315deg, #e91e63, #5d02ff);
+}
+.collections .box:nth-child(7)::before {
+  background: linear-gradient(315deg, #ff0000, #ffc107);
+}
+.collections .box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+.content {
+  position: relative;
+  height: 150px;
+  background: rgba(200, 200, 200, 0.5);
+  padding: 10px;
+  transform: translateY(40px);
+}
+.content h2 {
+  position: absolute;
+  top: -185px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 10em;
+  color: rgb(255, 255, 255);
+}
+
+.content h3 {
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 24px;
+  color: #000;
+}
+.content p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+.box .content a {
+  position: absolute;
+  top: 170px;
+  margin: 0;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  display: inline-block;
+  color: rgb(255, 254, 254);
+}
+.box .content a:hover {
+  background: #fff;
+  color: #000;
+}
+.photos {
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  z-index: 3;
+  width: 60%;
+  height: 500px;
+  padding: 40px;
+  background: rgba(220, 220, 220, 0.7);
+  background-size: cover;
+  display: none;
+}
+.photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photos button.close-photos {
+  width: 40px;
+  height: 40px;
+  line-height: 30px;
+  font-size: 35px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+.photos > button {
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline: none;
+}
+.photos button:hover {
+  cursor: pointer;
+}
+.gallery {
+  width: 100%;
+  height: 100%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+.gallery .outerbox {
+  width: 376px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 5px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 5px solid rgba(255, 255, 255, 0.8);
+  border-left: 10px solid rgba(255, 255, 255, 0.8);
+}
+.gallery .innerbox {
+  width: 120px;
+  height: 90px;
+  margin: 5px auto;
+}
+.gallery .innerbox img {
+  object-fit: cover;
+  cursor: pointer;
+}
+.gallery .showpicture {
+  width: 580px;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 10px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 10px solid rgba(255, 255, 255, 0.8);
+  border-right: 5px solid rgba(255, 255, 255, 0.8);
+}
+.gallery .showpicture img {
+  object-fit: contain;
+}
+
+/*--------RWD 作品集------*/
+@media only screen and (min-width: 1400px) {
+  .photos {
+    width: 1080px;
+  }
+  .gallery {
+    width: 930px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .photos {
+    width: 95%;
+    height: 550px;
+    top: 10%;
+    left: 2%;
+  }
+  .gallery {
+    width: 100%;
+  }
+  .gallery .outerbox {
+    width: 150px;
+    border-right: 10px solid rgba(255, 255, 255, 0.8);
+  }
+  .gallery .innerbox {
+    width: 100px;
+    height: 55px;
+  }
+  .gallery .showpicture {
+    width: 950px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .photos {
+    width: 95%;
+    height: 80%;
+    left: 10px;
+    background: rgba(220, 220, 220, 0.4);
+  }
+  .gallery .outerbox {
+    width: 750px;
+  }
+  .gallery .innerbox {
+    width: 700px;
+    height: 340px;
+  }
+  .gallery .innerbox img {
+    object-fit: contain;
+  }
+  .gallery .showpicture {
+    display: none;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .photos button.close-photos {
+    top: -5px;
+    right: -5px;
+  }
+  .gallery .outerbox {
+    width: 350px;
+  }
+  .gallery .innerbox {
+    width: 350px;
+    height: 180px;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .gallery .innerbox {
+    width: 200px;
+    height: 135px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .content h2 {
+    top: -60px;
+    color: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+  }
+  .box:hover .content h2 {
+    top: -180px;
+    color: #fff;
+  }
+  .box .content a {
+    top: 140px;
+    transition: 0.5s;
+    transform: translateY(-40px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  .box:hover .content a {
+    transform: translateY(20px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/*---X------------作品集---底-----------------X----------*/
+
+/*------------------------------------以下小小互動區*/
+.activehouse {
+  width: 100%;
+  height: 980px;
+  background: url("../img/interior/interiorhousebg1.png");
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.scrollbackground {
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+}
+#rangeValue {
+  position: relative;
+  display: block;
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+#rangeValue::after {
+  content: ":00";
+}
+#fillRangeValue {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 0;
+  height: 980px;
+  background: url("../img/interior/interiorhousebg2.png");
+  background-size: cover;
+  z-index: 0;
+}
+.range {
+  position: relative;
+  width: 400px;
+  height: 20px;
+  -webkit-appearance: none;
+  background: rgba(0, 0, 0, 0.8);
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0 0 0 2px #151515, inset 0 0 5px #000;
+  overflow: hidden;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #00adff;
+  border-radius: 50%;
+  border: 4px solid #222;
+  box-shadow: -407px 0 0 400px #00adff;
+  cursor: pointer;
+}
+.housetitle h2 {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  text-align: center;
+  font-size: 60px;
+  line-height: 60px;
+  z-index: 2;
+}
+.decorate {
+  width: 100%;
+  position: absolute;
+  top: 150px;
+  z-index: 2;
+}
+.drop-down-menu {
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  background: #000;
+}
+.drop-down-menu > li {
+  position: relative;
+  white-space: nowrap;
+  border: 2px solid transparent;
+}
+.drop-down-menu > li {
+  width: 100%;
+}
+.drop-down-menu > li {
+  float: left; /* 只有第一層是靠左對齊*/
+}
+.drop-down-menu li > span {
+  background-color: pink;
+  color: #333;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+}
+.drop-down-menu a:hover {
+  /* 滑鼠滑入按鈕變色*/
+  background-color: #ef5c28;
+  color: #fff;
+}
+.drop-down-menu li:hover > span {
+  /* 滑鼠移入次選單上層按鈕保持變色*/
+  background-color: #ef5c28;
+  color: #fff;
+}
+.drop-down-menu .liststyle {
+  border-top: 2px solid #fff;
+  position: absolute;
+  z-index: 10;
+  left: -1px;
+  top: 100%;
+  min-width: 200px;
+  max-height: 200px;
+  overflow: scroll;
+}
+.drop-down-menu .liststyle li {
+  border: 2px solid #fff;
+}
+.drop-down-menu .liststyle li {
+  border-top: none;
+}
+.drop-down-menu .liststyle li img {
+  height: 60px;
+  padding: 2px;
+  background: #ddd;
+}
+.drop-down-menu .liststyle li:hover > img {
+  background-color: #ef5c28;
+}
+.drop-down-menu .liststyle img {
+  object-fit: contain;
+}
+.drop-down-menu .liststyle {
+  /*隱藏次選單*/
+  display: none;
+}
+.drop-down-menu li:hover > .liststyle {
+  /* 滑鼠滑入展開次選單*/
+  display: block;
+}
+
+/*展示小屋*/
+.showroom {
+  width: 800px;
+  height: 600px;
+  margin: 100px auto;
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+.wall-1 {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: 29.3%;
+  left: 7.7%;
+  transform: skew(0deg, -30deg);
+  z-index: 1;
+  overflow: hidden;
+}
+.showroom span:nth-child(1) {
+  width: 21px;
+  height: 200px;
+  transform: skew(0deg, 1deg);
+  position: absolute;
+  top: 43.7%;
+  left: 5.1%;
+  z-index: 4;
+  background: linear-gradient(60deg, #666 1%, #aaa);
+}
+.showroom span:nth-child(2) {
+  width: 22px;
+  height: 178px;
+  transform: skew(-60deg, 0deg);
+  position: absolute;
+  top: 14%;
+  left: 24.4%;
+  z-index: 3;
+  background: linear-gradient(7deg, #666, #aaa, #444);
+}
+.showroom span:nth-child(3) {
+  width: 425px;
+  height: 10px;
+  transform: skew(-60deg, 2deg);
+  position: absolute;
+  top: 14.8%;
+  left: 43%;
+  z-index: 4;
+  background: linear-gradient(7deg, #444 1%, #aaa 75%, #666);
+}
+.showroom span:nth-child(4) {
+  width: 17px;
+  height: 201px;
+  transform: skew(0deg, -30deg);
+  position: absolute;
+  top: 16.8%;
+  right: 2.9%;
+  z-index: 3;
+  background: linear-gradient(90deg, #666 1%, #aaa);
+}
+.Window {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 36%;
+  left: 20%;
+  transform: skew(0deg, -30deg);
+  z-index: 2;
+  overflow: hidden;
+}
+.wall-2 {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 16.5%;
+  left: 45.1%;
+  transform: skew(0deg, 2deg);
+  z-index: 1;
+  overflow: hidden;
+}
+.floor {
+  width: 405px;
+  height: 175px;
+  position: absolute;
+  top: 49%;
+  left: 26.7%;
+  transform: skew(-60deg, 2deg);
+  overflow: hidden;
+}
+.smCarpet {
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  top: 58%;
+  left: 39%;
+  transform: skew(-60deg, 2deg);
+  overflow: hidden;
+  z-index: 3;
+}
+.smSofa {
+  width: 180px;
+  height: 90px;
+  position: absolute;
+  top: 40%;
+  left: 52%;
+  transform: skew(0deg, 2deg);
+  overflow: hidden;
+  z-index: 4;
+}
+.smTable {
+  width: 150px;
+  height: 70px;
+  position: absolute;
+  top: 54%;
+  left: 42%;
+  transform: skew(0deg, 2deg);
+  overflow: hidden;
+  z-index: 5;
+}
+@media only screen and (max-width: 1000px) {
+  .activehouse {
+    display: none;
+  }
+}
+
+/*--------------------footer-----------------------------*/
+.footer {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.footertxt {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+/* ------------------------------------------------以下是回頂置 */
+.topbtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+}
+.topbtn a {
+  text-decoration: none;
+  text-align: center;
+}
+.topbtn a img {
+  width: 100%;
+  height: 100%;
+}

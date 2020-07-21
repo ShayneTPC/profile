@@ -1,0 +1,485 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "cwTeXYen", sans-serif;
+}
+img {
+  vertical-align: middle;
+}
+/*------------loading-------------------*/
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 99;
+}
+.wrap-load {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #240229;
+  border-radius: 20px;
+}
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 4px solid #240229;
+  border-radius: 20px;
+  box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.1),
+    10px 10px 10px rgba(0, 0, 0, 0.4),
+    inset -5px -5px 5px rgba(255, 255, 255, 0.2),
+    inset 10px 10px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #240229;
+  border: 2px solid;
+  border-radius: 12px;
+  box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.loader span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 15px;
+  filter: blur(20px);
+  animation: rotation 0.5s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.inner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  z-index: 5;
+}
+.inner span {
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #ed4c67 5%,
+    #f79f1f 10%,
+    #a3cb38 15%,
+    #12cbc4 30%,
+    #8900ff 50%
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 300%;
+  z-index: 1000;
+}
+.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*-----x------------loading-------------x----*/
+
+/* -----------------------------------------------以下是導覽列 */
+.head {
+  background: linear-gradient(225deg, #acacac 1%, #031321);
+}
+.container {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  position: relative;
+}
+.logo {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-self: center;
+  margin: 0 20px;
+  padding: 0 2px;
+  color: #2af8fc;
+  border: 2px solid #2af8fc;
+  border-radius: 8px;
+}
+.logo h1 {
+  font-size: 38px;
+  line-height: 52px;
+}
+.logo p {
+  font-size: 24px;
+  line-height: 60px;
+}
+.logo span {
+  position: absolute;
+  top: 3px;
+  right: -4.5px;
+  transform: scale(0.5);
+}
+.mainbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.mainbar a {
+  position: relative;
+  height: 25px;
+  font-size: 16px;
+  color: #03e9f4;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 10px 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+}
+/* 導覽選單顏色改變 */
+.mainbar a:nth-child(2) {
+  filter: hue-rotate(90deg);
+}
+.mainbar a:nth-child(3) {
+  filter: hue-rotate(180deg);
+}
+.mainbar a:nth-child(4) {
+  filter: hue-rotate(270deg);
+}
+/* 以下是導覽列的動畫 */
+.mainbar a:hover {
+  color: #255784;
+  background: #03e9f4;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+}
+.mainbar a span {
+  position: absolute;
+  display: block;
+}
+.mainbar a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+.mainbar a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+.mainbar a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+.mainbar a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 1.5px;
+  height: 100%;
+  background: linear-gradient(36deg, transparent, #03e9f4);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+/*---------------------------RWD------------------------*/
+@media only screen and (max-width: 768px) {
+  .head {
+    background: linear-gradient(-225deg, #acacac 1%, #031321);
+  }
+  .container {
+    height: 60px;
+    white-space: nowrap;
+  }
+  .logo {
+    margin: 0 10px;
+    position: absolute;
+    right: 0;
+  }
+  .mainbar {
+    width: 180px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    z-index: 20;
+    background: rgba(35, 42, 72, 0.95);
+    animation: curtain 0.5s linear;
+  }
+  @keyframes curtain {
+    0% {
+      clip-path: polygon(15% 0, 13% 32%, 7% 63%, 0 89%, 0 93%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(
+        15% 0,
+        13% 32%,
+        7% 63%,
+        0 89%,
+        0 93%,
+        0 100%,
+        0 0
+      );
+    }
+    25% {
+      clip-path: polygon(32% 0, 27% 30%, 19% 59%, 11% 80%, 0 93%, 0 100%, 0 0);
+      -webkit-clip-path: polygon(
+        32% 0,
+        27% 30%,
+        19% 59%,
+        11% 80%,
+        0 93%,
+        0 100%,
+        0 0
+      );
+    }
+    50% {
+      clip-path: polygon(
+        57% 0,
+        54% 25%,
+        44% 56%,
+        31% 79%,
+        12% 94%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        57% 0,
+        54% 25%,
+        44% 56%,
+        31% 79%,
+        12% 94%,
+        0 100%,
+        0 0
+      );
+    }
+    75% {
+      clip-path: polygon(
+        93% 0,
+        88% 29%,
+        82% 58%,
+        68% 84%,
+        49% 100%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        93% 0,
+        88% 29%,
+        82% 58%,
+        68% 84%,
+        49% 100%,
+        0 100%,
+        0 0
+      );
+    }
+    100% {
+      clip-path: polygon(
+        100% 0,
+        100% 35%,
+        100% 68%,
+        100% 100%,
+        66% 100%,
+        0 100%,
+        0 0
+      );
+      -webkit-clip-path: polygon(
+        100% 0,
+        100% 35%,
+        100% 68%,
+        100% 100%,
+        66% 100%,
+        0 100%,
+        0 0
+      );
+    }
+  }
+  .mainbar.move {
+    display: none;
+  }
+  .mainbar a {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  .controlar {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    padding: 3px 10px;
+    border: 2px solid rgba(220, 220, 220, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .controlar span {
+    content: "";
+    display: block;
+    border: 1.5px solid rgba(240, 240, 240, 0.7);
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+  .controlar:hover {
+    background: rgba(35, 42, 72, 0.8);
+  }
+}
+/*----------X--------header RWD--------------X----------*/
+
+/*------------theme------------*/
+.theme {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+.list {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  color: #fff;
+  background: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.list p {
+  font-size: 20px;
+  font-family: "cwTeXYen", sans-serif;
+  padding: 5px 10px;
+}
+.active {
+  color: #000;
+  background: #fa0;
+}
+.disappear {
+  display: none;
+}
+/*----------X------------theme-----------X-------------*/
+
+/*--------------------footer-----------------------------*/
+.footer {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+.footertxt {
+  width: 100%;
+  font-family: "cwTeXYen", sans-serif;
+  color: #fff;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+/* ------------------------------------------------以下是回頂置 */
+.topbtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+}
+.topbtn a {
+  text-decoration: none;
+  text-align: center;
+}
+.topbtn a img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------------------------------------119app */
+.wrap119app {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

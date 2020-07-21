@@ -1,0 +1,506 @@
+.thailearning {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  position: relative;
+  background: linear-gradient(
+    30deg,
+    rgba(10, 10, 10, 0.1),
+    rgba(0, 55, 75, 0.3),
+    rgba(10, 10, 10, 0.1),
+    rgba(0, 55, 75, 0.3),
+    rgba(10, 10, 10, 0.1)
+  );
+}
+.panel {
+  width: 70vw;
+  height: 100%;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.panel .show {
+  position: absolute;
+  top: 200px;
+  left: 10%;
+  display: flex;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 760px;
+  border-radius: 5px;
+  border: solid 1px #fff;
+}
+
+.panel .show #input {
+  width: 200px;
+  height: 60px;
+  font-size: 30px;
+  font-family: "cwTeXYen", sans-serif;
+  font-weight: 700;
+  line-height: 35px;
+  border: 1px solid #222;
+  padding: 10px;
+  outline: none;
+}
+
+.panel .show #input:focus {
+  border: 2px solid #555;
+}
+
+.panel .show .enter {
+  width: 25px;
+  height: 35px;
+  margin: 12px 15px 0 15px;
+  padding-left: 3px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  background-color: #f9c500;
+  outline: none;
+}
+
+.panel .show .enter.rotate {
+  animation: rotate 1s 1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.panel .show .enter:hover {
+  color: #fff;
+  background-color: #222;
+}
+
+.panel .show .showlist {
+  width: 200px;
+  height: 60px;
+  max-width: 200px;
+  border: solid 1px #222;
+  font-size: 25px;
+  font-family: "cwTeXYen", sans-serif;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+}
+.panel .show .showlist::-webkit-scrollbar {
+  list-style: none;
+  height: 5px;
+}
+.panel .show .showlist::-ms-overflow-style {
+  list-style: none;
+  height: 5px;
+}
+.panel .show .soundLetter {
+  width: 200px;
+  height: 60px;
+  font-size: 22px;
+  font-family: "cwTeXYen", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  color: #000;
+}
+
+.panel .keyboards {
+  width: 760px;
+  height: 300px;
+  position: absolute;
+  top: 400px;
+  left: 10%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 20px 50px rgba(160, 160, 160, 0.5),
+    0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.panel .keyboards .row {
+  display: flex;
+  padding: 5px;
+}
+.panel .keyboards .row .kb {
+  width: 50px;
+  height: 50px;
+  padding-top: 6px;
+  border-radius: 0;
+  display: flex;
+  position: relative;
+  vertical-align: top;
+  background-color: #222;
+  border-radius: 6px;
+  transition: 0.2s;
+  margin: 0 4px;
+}
+
+.panel .keyboards .row .kb .letter,
+.panel .keyboards .row .kb .thai {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin: 0 5px;
+  width: 100%;
+  border-radius: 0;
+  color: #fff;
+}
+.panel .keyboards .row .kb .letter {
+  padding-left: 4px;
+}
+.panel .keyboards .tShift,
+.panel .keyboards .tMain {
+  font-family: sans-serif;
+}
+
+.panel .keyboards .row > .kb47 {
+  width: 50px;
+}
+
+.panel .keyboards .row > .kb48 {
+  width: 80px;
+}
+.panel .keyboards .row > .kb49 {
+  width: 70px;
+}
+.panel .keyboards .row > .kb50 {
+  width: 80px;
+}
+.panel .keyboards .row > .kb51 {
+  width: 85px;
+}
+.panel .keyboards .row > .kb52 {
+  width: 100px;
+}
+.panel .keyboards .row > .kb54 {
+  width: 65px;
+  padding-right: 2px;
+}
+.panel .keyboards .row > .kb55 {
+  width: 65px;
+}
+.panel .keyboards .row > .kb56 {
+  width: 85px;
+  padding-right: 3px;
+}
+.panel .keyboards .row > .kb57 {
+  width: 150px;
+}
+.panel .keyboards .row > .kb58,
+.panel .keyboards .row > .kb60 {
+  width: 50px;
+  height: 25px;
+  padding: 0;
+  text-align: center;
+  font-size: 10px;
+  margin-top: 25px;
+}
+.panel .keyboards .side {
+  margin-top: 5px;
+}
+.panel .keyboards .row > .kb59 {
+  width: 50px;
+  height: 50px;
+  padding-top: 1px;
+  font-size: 10px;
+}
+.panel .keyboards .row > .kb59 hr {
+  width: 52px;
+  margin-left: -10px;
+  margin-top: 2px;
+  padding: 1px;
+  background: #fff;
+  border: 0.8px solid;
+}
+.panel .keyboards .row > .kb59 span {
+  margin-left: 10px;
+}
+.panel .keyboards .ar:nth-child(1) {
+  font-size: 14px;
+}
+.panel .keyboards .ar:nth-child(3) {
+  margin-top: 3px;
+  font-size: 14px;
+}
+.kb .chi,
+.kb .eng {
+  font-family: "cwTeXYen", sans-serif;
+}
+.chCor {
+  background-color: yellow;
+}
+
+.description {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 10px;
+  color: #f5f5f5;
+}
+
+.description .button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "cwTeXYen", sans-serif;
+  cursor: pointer;
+  background-color: rgba(34, 34, 34, 0.3);
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.description .button:hover {
+  background-color: #0f437e;
+}
+
+.description p {
+  font-size: 20px;
+  font-family: "cwTeXYen", sans-serif;
+  font-weight: 800;
+  background-color: rgba(0, 126, 166, 0.6);
+  color: #fff;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.close {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.open {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/*-----------------------book--------------------------------------*/
+
+.sentence {
+  width: 300px;
+  height: 150px;
+  background: #fff;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-family: "cwTeXYen", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 8px;
+  display: none;
+  font-size: 30px;
+  line-height: 60px;
+  padding-top: 10px;
+}
+.touch {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px #4973ff;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  animation-name: shake;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes shake {
+  0% {
+    right: 5%;
+  }
+  100% {
+    right: 5.1%;
+  }
+}
+.wave {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #4973ff;
+  border-radius: 3px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+.wave:before,
+.wave:after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #000;
+}
+.wave:before {
+  border-radius: 40%;
+  background: rgb(255, 255, 255, 1);
+  animation: wave1 2.5s linear infinite;
+}
+.wave:after {
+  border-radius: 35%;
+  background: rgb(255, 255, 255, 0.5);
+  animation: wave2 2.5s linear infinite;
+}
+@keyframes wave1 {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+}
+@keyframes wave2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(360deg);
+  }
+}
+.dailythai {
+  width: 30vw;
+  height: 100%;
+  position: relative;
+}
+.book {
+  width: 300px;
+  height: 400px;
+  background: rgba(251, 246, 232, 1);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) perspective(2000px);
+  box-shadow: inset 300px 0 50px rgba(245, 231, 195, 0.5),
+    0 20px 100px rgba(245, 231, 195, 0.5);
+  transition: 1s;
+}
+.book:hover {
+  transform: translate(-50%, -50%) perspective(2000px) rotate(10deg);
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5),
+    0 10px 100px rgba(0, 0, 0, 0.5);
+}
+.book::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  width: 100%;
+  height: 10px;
+  background: rgba(161, 116, 81, 1);
+  transform-origin: bottom;
+  transform: skewX(45deg);
+}
+.book::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 100%;
+  background: rgba(236, 198, 129, 1);
+  transform-origin: left;
+  transform: skewY(45deg);
+}
+.book .imgBox {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  transform-origin: left;
+  transition: 1s cubic-bezier(0.15, 1.75, 0.85, 0.57);
+  z-index: 2;
+  overflow: hidden;
+}
+.book img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+.book:hover .imgBox {
+  transform: rotateY(-135deg);
+}
+
+.book .detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  z-index: -1;
+}
+.book .detail h2 {
+  font-size: 30px;
+  font-family: "cwTeXYen", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.book .detail p {
+  font-size: 20px;
+  font-family: "cwTeXYen", sans-serif;
+  line-height: 20px;
+}
+
+/*---------------RWD-------------*/
+@media only screen and (max-width: 1100px) {
+  .thailearning {
+    height: 1500px;
+    flex-direction: column;
+  }
+  .panel {
+    margin-top: 20px;
+    width: 100%;
+    height: 800px;
+  }
+  .dailythai {
+    width: 100%;
+    height: 700px;
+    position: relative;
+  }
+  .book {
+    position: absolute;
+    top: 350px;
+    left: 450px;
+  }
+  .sentence {
+    position: absolute;
+    top: 400px;
+    left: 800px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .thailearning {
+    height: 700px;
+  }
+  .panel,
+  .description {
+    display: none;
+  }
+  .touch {
+    top: 20px;
+    right: 5%;
+  }
+  .book {
+    top: 450px;
+    left: 50%;
+  }
+  .sentence {
+    top: 150px;
+    left: 50%;
+  }
+}
